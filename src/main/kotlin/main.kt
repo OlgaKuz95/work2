@@ -1,27 +1,35 @@
 package  ru.netology
 fun main(){
     val discountMax = 5
-    val discountConst = 1
+    val discountConst=1
     val const = 100
     val constDis=100
-    val lastOne = 1001..10_000
-    val last = 10_000
+    val lastPrice = 10_002
     val buyer = 1000
     val monthEvery = 0
     val discount = buyer * discountMax/ const
-    val topDiscount = discount * discount/const
-    val totalPrice = buyer -discount
-    val result = if (last<=1000){
-        buyer
+    val discountStand =buyer - constDis
+    val priceDiscount = buyer - discount
+    //val regularСustomer = priceDiscount * discountConst/const
+
+
+
+
+    val result = when{
+        (lastPrice > 10000) -> priceDiscount
+        (lastPrice > 1000) -> discountStand
+        else -> buyer
     }
-    else if(last in lastOne){
-       (buyer-constDis)
-    }
 
-    else totalPrice
+    val total = when{
+        (monthEvery >0 && lastPrice > 10000)->  priceDiscount - priceDiscount*discountConst/const
+        (monthEvery >0 && lastPrice > 1000)-> discountStand- discountStand *discountConst/const
+       else -> result
+   }
 
 
-    println("Total price:$result")
+
+    println("Total price:$result $total")
 }
 
 
