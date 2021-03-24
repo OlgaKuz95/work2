@@ -1,5 +1,5 @@
 package  ru.netology
-fun main(){
+fun main() {
     val discountMax = 5
     val discountConst=1
     val const = 100
